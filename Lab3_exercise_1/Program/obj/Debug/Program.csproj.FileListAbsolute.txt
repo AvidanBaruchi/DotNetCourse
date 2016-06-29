@@ -1,0 +1,8 @@
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\bin\Debug\Program.exe.config
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\bin\Debug\Program.exe
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\bin\Debug\Program.pdb
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\bin\Debug\AccountsLib.dll
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\bin\Debug\AccountsLib.pdb
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\obj\Debug\Program.csprojResolveAssemblyReference.cache
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\obj\Debug\Program.exe
+C:\Users\Avdan\documents\visual studio 2015\Projects\Lab3_exercise_1\Program\obj\Debug\Program.pdb

@@ -1,0 +1,5 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_5\MulBoard\bin\Debug\MulBoard.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_5\MulBoard\bin\Debug\MulBoard.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_5\MulBoard\bin\Debug\MulBoard.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_5\MulBoard\obj\Debug\MulBoard.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_5\MulBoard\obj\Debug\MulBoard.pdb

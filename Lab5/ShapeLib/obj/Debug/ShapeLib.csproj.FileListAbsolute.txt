@@ -1,0 +1,15 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab5_exercise1\ShapeLib\bin\Debug\ShapeLib.dll
+c:\users\avdan\documents\visual studio 2015\Projects\Lab5_exercise1\ShapeLib\bin\Debug\ShapeLib.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab5_exercise1\ShapeLib\obj\Debug\ShapeLib.csprojResolveAssemblyReference.cache
+c:\users\avdan\documents\visual studio 2015\Projects\Lab5_exercise1\ShapeLib\obj\Debug\ShapeLib.dll
+c:\users\avdan\documents\visual studio 2015\Projects\Lab5_exercise1\ShapeLib\obj\Debug\ShapeLib.pdb
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\bin\Debug\ShapeLib.dll
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\bin\Debug\ShapeLib.pdb
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\obj\Debug\ShapeLib.csprojResolveAssemblyReference.cache
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\obj\Debug\ShapeLib.dll
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\obj\Debug\ShapeLib.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\bin\Debug\ShapeLib.dll
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\bin\Debug\ShapeLib.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\obj\Debug\ShapeLib.csprojResolveAssemblyReference.cache
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\obj\Debug\ShapeLib.dll
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab5\ShapeLib\obj\Debug\ShapeLib.pdb

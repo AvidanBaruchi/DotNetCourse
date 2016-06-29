@@ -1,0 +1,15 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.csprojResolveAssemblyReference.cache
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.exe.config
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.csprojResolveAssemblyReference.cache
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_2\GenericApp\bin\Debug\GenericApp.exe.config
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_2\GenericApp\obj\Debug\GenericApp.pdb

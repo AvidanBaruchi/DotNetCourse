@@ -1,0 +1,5 @@
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\bin\Debug\Lab2_exercise_1.exe.config
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\bin\Debug\Lab2_exercise_1.exe
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\bin\Debug\Lab2_exercise_1.pdb
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\obj\Debug\Lab2_exercise_1.exe
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\obj\Debug\Lab2_exercise_1.pdb

@@ -1,0 +1,15 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.csprojResolveAssemblyReference.cache
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe.config
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.csprojResolveAssemblyReference.cache
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe.config
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.pdb

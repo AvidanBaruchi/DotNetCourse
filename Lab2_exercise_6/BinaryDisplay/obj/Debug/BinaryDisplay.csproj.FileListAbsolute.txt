@@ -1,0 +1,6 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_6\BinaryDisplay\bin\Debug\BinaryDisplay.exe.config
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_6\BinaryDisplay\bin\Debug\BinaryDisplay.exe
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_6\BinaryDisplay\bin\Debug\BinaryDisplay.pdb
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_6\BinaryDisplay\obj\Debug\BinaryDisplay.csprojResolveAssemblyReference.cache
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_6\BinaryDisplay\obj\Debug\BinaryDisplay.exe
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_6\BinaryDisplay\obj\Debug\BinaryDisplay.pdb

@@ -1,0 +1,6 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\bin\Debug\Lab2_exercise_1.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\bin\Debug\Lab2_exercise_1.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\bin\Debug\Lab2_exercise_1.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\obj\Debug\Lab2_exercise_1.csprojResolveAssemblyReference.cache
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\obj\Debug\Lab2_exercise_1.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_1\Lab2_exercise_1\obj\Debug\Lab2_exercise_1.pdb

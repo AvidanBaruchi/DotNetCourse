@@ -1,0 +1,5 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_7\DollarStairs\bin\Debug\DollarStairs.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_7\DollarStairs\bin\Debug\DollarStairs.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_7\DollarStairs\bin\Debug\DollarStairs.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_7\DollarStairs\obj\Debug\DollarStairs.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_7\DollarStairs\obj\Debug\DollarStairs.pdb

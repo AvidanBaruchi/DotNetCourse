@@ -1,0 +1,6 @@
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_2\Lab2_exercise_2\bin\Debug\Lab2_exercise_2.exe.config
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_2\Lab2_exercise_2\bin\Debug\Lab2_exercise_2.exe
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_2\Lab2_exercise_2\bin\Debug\Lab2_exercise_2.pdb
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_2\Lab2_exercise_2\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_2\Lab2_exercise_2\obj\Debug\Lab2_exercise_2.exe
+C:\Users\Avdan\Documents\Visual Studio 2015\Projects\Lab2_exercise_2\Lab2_exercise_2\obj\Debug\Lab2_exercise_2.pdb

@@ -1,0 +1,6 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_3\GuessingGame\bin\Debug\GuessingGame.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_3\GuessingGame\bin\Debug\GuessingGame.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_3\GuessingGame\bin\Debug\GuessingGame.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_3\GuessingGame\obj\Debug\GuessingGame.csprojResolveAssemblyReference.cache
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_3\GuessingGame\obj\Debug\GuessingGame.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab2_exercise_3\GuessingGame\obj\Debug\GuessingGame.pdb

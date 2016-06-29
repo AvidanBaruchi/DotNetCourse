@@ -1,0 +1,6 @@
+c:\users\avdan\documents\visual studio 2015\Projects\Lab3_exercise_2\Rationals\bin\Debug\Rationals.exe.config
+c:\users\avdan\documents\visual studio 2015\Projects\Lab3_exercise_2\Rationals\bin\Debug\Rationals.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab3_exercise_2\Rationals\bin\Debug\Rationals.pdb
+c:\users\avdan\documents\visual studio 2015\Projects\Lab3_exercise_2\Rationals\obj\Debug\Rationals.csprojResolveAssemblyReference.cache
+c:\users\avdan\documents\visual studio 2015\Projects\Lab3_exercise_2\Rationals\obj\Debug\Rationals.exe
+c:\users\avdan\documents\visual studio 2015\Projects\Lab3_exercise_2\Rationals\obj\Debug\Rationals.pdb
