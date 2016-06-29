@@ -1,15 +1,1 @@
-c:\users\codevalue\documents\visual studio 2015\Projects\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe.config
-c:\users\codevalue\documents\visual studio 2015\Projects\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe
-c:\users\codevalue\documents\visual studio 2015\Projects\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.pdb
-c:\users\codevalue\documents\visual studio 2015\Projects\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.csprojResolveAssemblyReference.cache
-c:\users\codevalue\documents\visual studio 2015\Projects\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.exe
-c:\users\codevalue\documents\visual studio 2015\Projects\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNet\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe.config
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNet\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.exe
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNet\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe.config
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.exe
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_2\MailSystem\obj\Debug\MailSystem.csprojResolveAssemblyReference.cache
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe.config
