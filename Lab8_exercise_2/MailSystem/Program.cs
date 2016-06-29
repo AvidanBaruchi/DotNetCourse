@@ -27,7 +27,7 @@ namespace MailSystem
             Thread.Sleep(10000);
             //Console.ReadLine();
 
-            // check commit and push!
+            
         }
 
         private static void HandleMailArrived(object sender, MailArrivedEventArgs eventArgs)
