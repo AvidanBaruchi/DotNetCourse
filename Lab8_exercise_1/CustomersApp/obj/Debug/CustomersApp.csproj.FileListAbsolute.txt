@@ -19,9 +19,3 @@ C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab8_exercise_1\Custome
 C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNet\Lab8_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe.config
 C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNet\Lab8_exercise_1\CustomersApp\obj\Debug\CustomersApp.exe
 C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNet\Lab8_exercise_1\CustomersApp\obj\Debug\CustomersApp.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe.config
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_1\CustomersApp\obj\Debug\CustomersApp.exe
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab8_exercise_1\CustomersApp\obj\Debug\CustomersApp.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab8_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab8_exercise_1\CustomersApp\bin\Debug\CustomersApp.pdb
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab8_exercise_1\CustomersApp\obj\Debug\CustomersApp.csprojResolveAssemblyReference.cache
