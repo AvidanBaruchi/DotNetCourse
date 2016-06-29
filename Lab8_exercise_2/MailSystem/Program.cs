@@ -25,9 +25,6 @@ namespace MailSystem
             null, 0, 1000);
 
             Thread.Sleep(10000);
-            //Console.ReadLine();
-
-            
         }
 
         private static void HandleMailArrived(object sender, MailArrivedEventArgs eventArgs)
