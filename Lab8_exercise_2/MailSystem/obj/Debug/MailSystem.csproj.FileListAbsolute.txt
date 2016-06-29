@@ -1,1 +1,0 @@
-C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab8_exercise_2\MailSystem\bin\Debug\MailSystem.exe.config
