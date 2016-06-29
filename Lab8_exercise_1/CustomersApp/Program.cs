@@ -103,7 +103,7 @@ namespace CustomersApp
 
             foreach (Customer customer in customers)
             {
-                if(filter.Invoke(customer))
+                if(filter != null && filter.Invoke(customer))
                 {
                     filterdCollection.Add(customer);
                 }
@@ -114,17 +114,12 @@ namespace CustomersApp
 
         private static bool FilterA_K(Customer customer)
         {
-            string name = null;
+            string name = customer?.Name;
             Regex rgx = new Regex(@"^[a-k].*$", RegexOptions.IgnoreCase);
 
-            if (customer != null)
+            if (name != null && name.Length > 0)
             {
-                name = customer.Name;
-
-                if (name != null && name.Length > 0)
-                {
-                    return rgx.IsMatch(name);
-                }
+                return rgx.IsMatch(name);
             }
 
             return false;
