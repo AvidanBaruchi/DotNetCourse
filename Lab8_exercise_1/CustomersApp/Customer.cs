@@ -42,8 +42,10 @@ namespace CustomersApp
 
         public bool Equals(Customer other)
         {
-            return this.Name.ToLower() == other.Name.ToLower()
-                && this.ID == other.ID;
+            if (other == null) return false;
+
+            return string.Equals(Name?.ToLower(), other.Name?.ToLower())
+                && ID == other.ID;
         }
 
         public override string ToString()
@@ -53,14 +55,7 @@ namespace CustomersApp
 
         public override bool Equals(object obj)
         {
-            Customer customer = obj as Customer;
-
-            if(customer != null)
-            {
-                return Equals(customer);
-            }
-
-            return false;
+            return Equals(obj as Customer);
         }
 
         public override int GetHashCode()
