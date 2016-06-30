@@ -17,7 +17,7 @@ namespace CustomersApp
             Address = address;
         }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         public int ID
         {
@@ -33,11 +33,13 @@ namespace CustomersApp
             }
         }
 
-        public string Address { get; set; }
+        public string Address { get; private set; }
 
         public int CompareTo(Customer other)
         {
-            return (this.Name.ToLower()).CompareTo(other.Name.ToLower());
+            return string.Compare(Name, other?.Name, true);
+
+            //return (this.Name.ToLower()).CompareTo(other.Name.ToLower());
         }
 
         public bool Equals(Customer other)
