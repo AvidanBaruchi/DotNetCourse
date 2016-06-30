@@ -13,3 +13,6 @@ C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\Lab7_exercise_1\Custome
 C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe.config
 C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.exe
 C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotNetCourse\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.exe
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab7_exercise_1\CustomersApp\bin\Debug\CustomersApp.pdb
+C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab7_exercise_1\CustomersApp\obj\Debug\CustomersApp.csprojResolveAssemblyReference.cache

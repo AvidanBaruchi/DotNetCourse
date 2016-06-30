@@ -15,7 +15,8 @@ namespace CustomersApp
                 new Customer(1, "Avidan Baurchi", "Yavne"),
                 new Customer(2, "John Doe", "California"),
                 new Customer(3, "Chandler Bean", "New York"),
-                new Customer(4, "Darth Vader", "Death Planet")
+                new Customer(4, "Darth Vader", "Death Planet"),
+                new Customer(5, null, "ZZ")
             };
 
             Console.WriteLine("{0}Before Sort: {0}", System.Environment.NewLine);

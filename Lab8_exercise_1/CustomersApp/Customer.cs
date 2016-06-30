@@ -38,8 +38,6 @@ namespace CustomersApp
         public int CompareTo(Customer other)
         {
             return string.Compare(Name, other?.Name, true);
-
-            //return (this.Name.ToLower()).CompareTo(other.Name.ToLower());
         }
 
         public bool Equals(Customer other)
