@@ -27,6 +27,8 @@ namespace MailSystem
             Thread.Sleep(10000);
         }
 
+
+
         private static void HandleMailArrived(object sender, MailArrivedEventArgs eventArgs)
         {
             if (eventArgs != MailArrivedEventArgs.Empty)
