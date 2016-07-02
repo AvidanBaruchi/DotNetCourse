@@ -11,7 +11,8 @@ namespace FileFinder
     {
         static void Main(string[] args)
         {
-            ICollection<string> foundFiles = null;
+            // TODO: Rearrange the recursive method: recursively access directories, then search current directory files.
+            ICollection<FileInfo> foundFiles = null;
 
             if(args.Length != 2)
             {
@@ -22,25 +23,35 @@ namespace FileFinder
             if(Directory.Exists(args[0]))
             {
                 foundFiles = SearchDirectoryAndDisplayFiles(args[0], args[1]);
+
+                foreach (FileInfo file in foundFiles)
+                {
+                    Console.WriteLine("Name: {0}, Length: {1}", file.Name, file.Length);
+                }
             }
             else
             {
                 Console.WriteLine("directory do not exists!");
             }
+
+            Console.ReadLine();
         }
 
-        private static ICollection<string> SearchDirectoryAndDisplayFiles(string directory, string name)
+        private static ICollection<FileInfo> SearchDirectoryAndDisplayFiles(string directory, string name)
         {
-            List<string> foundPaths = new List<string>();
-            ICollection<string> subDirectoryFoundPaths = new List<string>();
+            List<FileInfo> foundPaths = new List<FileInfo>();
+            ICollection<FileInfo> subDirectoryFoundPaths = new List<FileInfo>();
 
             if(Directory.Exists(directory))
             {
                 foreach (string subDirectory in Directory.GetDirectories(directory))
                 {
-                    foreach (string file in Directory.GetFiles(subDirectory, name))
+                    foreach (string file in Directory.GetFiles(subDirectory))
                     {
-                        foundPaths.Add(file);
+                        if(Path.GetFileName(file).Contains(name))
+                        {
+                            foundPaths.Add(new FileInfo(file));
+                        }
                     }
 
                     subDirectoryFoundPaths = SearchDirectoryAndDisplayFiles(subDirectory, name);
@@ -50,7 +61,7 @@ namespace FileFinder
 
             foreach (string file in Directory.GetFiles(directory, name))
             {
-                foundPaths.Add(file);
+                foundPaths.Add(new FileInfo(file));
             }
 
             return foundPaths;
