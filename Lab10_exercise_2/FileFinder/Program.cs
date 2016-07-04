@@ -13,27 +13,28 @@ namespace FileFinder
         {
             ICollection<FileInfo> foundFiles = null;
 
-            if(args.Length != 2)
+            if (args.Length == 2)
             {
-                Console.WriteLine("Please supply directory path and a search string and try again!");
-                return;
-            }
-
-            if(Directory.Exists(args[0]))
-            {
-                foundFiles = SearchFilesInDirectory(args[0], args[1]);
-
-                foreach (FileInfo file in foundFiles)
+                if (Directory.Exists(args[0]))
                 {
-                    Console.WriteLine("Name: {0}, Length: {1}", file.Name, file.Length);
+                    foundFiles = SearchFilesInDirectory(args[0], args[1]);
+                    Console.WriteLine("done!");
+
+                    foreach (FileInfo file in foundFiles)
+                    {
+                        Console.WriteLine($"Name: {file.Name}, Length: {file.Length}");
+                    }
                 }
+                else
+                {
+                    Console.WriteLine("directory do not exist!");
+                } 
             }
             else
             {
-                Console.WriteLine("directory do not exist!");
+                Console.WriteLine("Please supply directory path and a search string and try again!");
             }
 
-            Console.WriteLine("done!");
             Console.ReadLine();
         }
 
@@ -42,12 +43,23 @@ namespace FileFinder
             var foundPaths = new List<FileInfo>();
             ICollection<FileInfo> subDirectoryPaths = new List<FileInfo>();
 
-            foreach (string path in Directory.GetFiles(directory, "*" + fileName + "*"))
+            foreach (string path in Directory.EnumerateFiles(directory, "*" + fileName + "*"))
             {
-                foundPaths.Add(new FileInfo(path));
+                try
+                {
+                    foundPaths.Add(new FileInfo(path));
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    Console.WriteLine("[Error] Unauthorized Access: " + e.Message);
+                }
+                catch(PathTooLongException e)
+                {
+                    Console.WriteLine("[Error] Path Too Long: " + e.Message);
+                }
             }
 
-            foreach (string directoryPath in Directory.GetDirectories(directory))
+            foreach (string directoryPath in Directory.EnumerateDirectories(directory))
             {
                 try
                 {
@@ -57,7 +69,11 @@ namespace FileFinder
                 catch (UnauthorizedAccessException e)
                 {
                     Console.WriteLine("[Error] Unauthorized Access: " + e.Message);
-                }   
+                }
+                catch (PathTooLongException e)
+                {
+                    Console.WriteLine("[Error] Path Too Long: " + e.Message);
+                }
             }
 
             return foundPaths;
