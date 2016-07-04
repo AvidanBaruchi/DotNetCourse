@@ -1,0 +1,9 @@
+In my answers im referring to the "ordinary" assembly. the Shapes project is not a strong named assembly.
+
+2. it works because Fusion tries to get the assembly first from the application directory, dont find it there; and then 
+   looks for a directory with the assembly name and looks there too. he found the assembly there.
+
+3. same answer as before. Fusion didnt find the ShapesLib assembly, and did not find the ShapesLib directory.
+   further more, there was no explicit probing configuration to point fusion into the a specific directory.
+
+12. Yep! Fusion looked for the assembly inside the probing configuration directory in App.config (after trying the other 2 possibilities).
