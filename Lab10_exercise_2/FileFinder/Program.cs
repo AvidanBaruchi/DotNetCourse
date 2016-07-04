@@ -11,7 +11,6 @@ namespace FileFinder
     {
         static void Main(string[] args)
         {
-            // TODO: Rearrange the recursive method: recursively access directories, then search current directory files.
             ICollection<FileInfo> foundFiles = null;
 
             if(args.Length != 2)
@@ -22,7 +21,7 @@ namespace FileFinder
 
             if(Directory.Exists(args[0]))
             {
-                foundFiles = SearchDirectoryAndDisplayFiles(args[0], args[1]);
+                foundFiles = SearchFilesInDirectory(args[0], args[1]);
 
                 foreach (FileInfo file in foundFiles)
                 {
@@ -31,37 +30,34 @@ namespace FileFinder
             }
             else
             {
-                Console.WriteLine("directory do not exists!");
+                Console.WriteLine("directory do not exist!");
             }
 
+            Console.WriteLine("done!");
             Console.ReadLine();
         }
 
-        private static ICollection<FileInfo> SearchDirectoryAndDisplayFiles(string directory, string name)
+        private static ICollection<FileInfo> SearchFilesInDirectory(string directory, string fileName)
         {
-            List<FileInfo> foundPaths = new List<FileInfo>();
-            ICollection<FileInfo> subDirectoryFoundPaths = new List<FileInfo>();
+            var foundPaths = new List<FileInfo>();
+            ICollection<FileInfo> subDirectoryPaths = new List<FileInfo>();
 
-            if(Directory.Exists(directory))
+            foreach (string path in Directory.GetFiles(directory, "*" + fileName + "*"))
             {
-                foreach (string subDirectory in Directory.GetDirectories(directory))
-                {
-                    foreach (string file in Directory.GetFiles(subDirectory))
-                    {
-                        if(Path.GetFileName(file).Contains(name))
-                        {
-                            foundPaths.Add(new FileInfo(file));
-                        }
-                    }
-
-                    subDirectoryFoundPaths = SearchDirectoryAndDisplayFiles(subDirectory, name);
-                    foundPaths.AddRange(subDirectoryFoundPaths);
-                }
+                foundPaths.Add(new FileInfo(path));
             }
 
-            foreach (string file in Directory.GetFiles(directory, name))
+            foreach (string directoryPath in Directory.GetDirectories(directory))
             {
-                foundPaths.Add(new FileInfo(file));
+                try
+                {
+                    subDirectoryPaths = SearchFilesInDirectory(directoryPath, fileName);
+                    foundPaths.AddRange(subDirectoryPaths);
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    Console.WriteLine("[Error] Unauthorized Access: " + e.Message);
+                }   
             }
 
             return foundPaths;
