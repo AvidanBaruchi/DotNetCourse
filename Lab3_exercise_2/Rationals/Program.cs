@@ -30,10 +30,5 @@ namespace Rationals
 
             Console.ReadLine();
         }
-
-        private static void PrintRational(Rational r)
-        {
-            Console.WriteLine("{0} / {1} = {2}", r.Numerator, r.Denominator, r.GetDouble);
-        }
     }
 }

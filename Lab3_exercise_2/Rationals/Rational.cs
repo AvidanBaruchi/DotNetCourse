@@ -68,6 +68,7 @@ namespace Rationals
         {
             bool isMinus = (GetDouble < 0);
             string str = null;
+
             str = String.Format("{0}/{1} = {2}", Math.Abs(Numerator), Math.Abs(Denominator), GetDouble);
 
             if (isMinus)
@@ -84,7 +85,7 @@ namespace Rationals
         {
             Rational input;
 
-            if(!obj.GetType().Equals(this.GetType()))
+            if(obj == null || !obj.GetType().Equals(this.GetType()))
             {
                 return false;
             }
@@ -92,6 +93,11 @@ namespace Rationals
             input = (Rational)obj;
 
             return input.GetDouble == this.GetDouble;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)GetDouble;
         }
 
         private int ComputeGCD()
