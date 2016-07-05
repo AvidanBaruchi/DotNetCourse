@@ -125,5 +125,32 @@ namespace Rationals
                 Denominator = 1;
             }
         }
+
+        public static Rational operator +(Rational a, Rational b)
+        {
+            return a.Add(b);
+        }
+
+        public static Rational operator -(Rational a, Rational b)
+        {
+            return a.Add(new Rational(-b.Numerator, b.Denominator));
+        }
+
+        public static Rational operator *(Rational a, Rational b)
+        {
+            return a.Mul(b);
+        }
+
+        public static Rational operator /(Rational a, Rational b)
+        {
+            if(b.Numerator == 0)
+            {
+                throw new DivideByZeroException("Attempted to divide by zero.");
+            }
+            else
+            {
+                return a.Mul(new Rational(b.Denominator, b.Numerator));
+            }
+        }
     }
 }

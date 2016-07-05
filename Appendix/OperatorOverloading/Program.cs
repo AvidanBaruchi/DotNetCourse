@@ -12,14 +12,14 @@ namespace Rationals
         {
             Rational r1 = new Rational(1, 3);
             Rational r2 = new Rational(1, 5);
-            Rational r3 = r1.Add(r2);
+            Rational r3 = r1 + r2;
 
             Console.WriteLine(r3.ToString());
-            r3 = r3.Add(new Rational(1, 15));
+            r3 = r3 + new Rational(1, 15);
             Console.WriteLine(r3.ToString());
             r3.Reduce();
             Console.WriteLine(r3.ToString());
-            r3 = r3.Mul(new Rational(-1, 1));
+            r3 = r3 * new Rational(-1, 1);
             Console.WriteLine(r3.ToString());
             Console.WriteLine(new Rational(-9,-15));
 
