@@ -28,6 +28,11 @@ namespace Rationals
                 Console.WriteLine("equals..");
             }
 
+            Rational fromInt = 5;
+            double toDouble = (double)(new Rational(25, 5));
+
+            Console.WriteLine($"From int: {fromInt}, To double: {toDouble:##.00}");
+
             Console.ReadLine();
         }
     }

@@ -152,5 +152,15 @@ namespace Rationals
                 return a.Mul(new Rational(b.Denominator, b.Numerator));
             }
         }
+
+        public static implicit operator Rational(int fromInt)
+        {
+            return new Rational(fromInt, 1);
+        }
+
+        public static explicit operator double(Rational rational)
+        {
+            return rational.GetDouble;
+        }
     }
 }
