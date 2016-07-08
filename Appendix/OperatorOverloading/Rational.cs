@@ -10,9 +10,13 @@ namespace Rationals
     {
         public Rational(int numerator, int denominator)
         {
+            if(denominator == 0)
+            {
+                throw new DivideByZeroException("Attempted to divide by zero.");
+            }
+
             Numerator = numerator;
             Denominator = denominator;
-            checkValidity();
         }
 
         public Rational(int numerator)
@@ -23,6 +27,7 @@ namespace Rationals
 
         public int Numerator { get; private set; }
         public int Denominator { get; private set; }
+
         public double GetDouble
         {
             get
@@ -79,8 +84,6 @@ namespace Rationals
             return str;
         }
 
-        // Im aware we didnt learn Reflections, but i think it is the only way
-        // to avoid runtime errors of value type casting (can't use 'is' or 'as' operators..).
         public override bool Equals(object obj)
         {
             Rational input;
@@ -116,16 +119,6 @@ namespace Rationals
             return a;
         }
 
-        private void checkValidity()
-        {
-            if(Denominator == 0)
-            {
-                Console.WriteLine("Rational Numbers Cannot Contain a Zero Value of Denominator!!{0}Denominator has Setted to 1!",
-                    System.Environment.NewLine);
-                Denominator = 1;
-            }
-        }
-
         public static Rational operator +(Rational a, Rational b)
         {
             return a.Add(b);
@@ -143,19 +136,12 @@ namespace Rationals
 
         public static Rational operator /(Rational a, Rational b)
         {
-            if(b.Numerator == 0)
-            {
-                throw new DivideByZeroException("Attempted to divide by zero.");
-            }
-            else
-            {
-                return a.Mul(new Rational(b.Denominator, b.Numerator));
-            }
+            return a.Mul(new Rational(b.Denominator, b.Numerator));
         }
 
         public static implicit operator Rational(int fromInt)
         {
-            return new Rational(fromInt, 1);
+            return new Rational(fromInt);
         }
 
         public static explicit operator double(Rational rational)

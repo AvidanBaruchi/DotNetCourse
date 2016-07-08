@@ -33,6 +33,15 @@ namespace Rationals
 
             Console.WriteLine($"From int: {fromInt}, To double: {toDouble:##.00}");
 
+            try
+            {
+                Rational rational = r1 / 0;
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
             Console.ReadLine();
         }
     }
