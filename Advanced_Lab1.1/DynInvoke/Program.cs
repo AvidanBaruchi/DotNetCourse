@@ -41,7 +41,7 @@ namespace DynInvoke
         {
             string invokedResult = null;
             MemberInfo[] members = null;
-            List<MethodInfo> methods = new List<MethodInfo>();
+            //List<MethodInfo> methods = new List<MethodInfo>();
             MethodInfo currentMethod = null;
             ParameterInfo[] parameters = null;
 

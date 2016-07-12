@@ -8,7 +8,7 @@ namespace DynInvoke.Classes
 {
     class B
     {
-        public string Hello(string message)
+        public static string Hello(string message)
         {
             return "Bonjour " + message;
         }
