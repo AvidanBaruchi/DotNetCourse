@@ -11,11 +11,12 @@ namespace Personnel
     {
         static void Main(string[] args)
         {
+            Helper helper = new Helper();
             List<string> names = null;
 
             try
             {
-                names = ReadData(@"C:\Users\CodeValue\Documents\Visual Studio 2015\Projects\DotnetCourse\Lab10_exercise_1\Personnel\txtFile.txt");
+                names = helper.ReadData(@"txtFile.txt");
             }
             catch(ArgumentException e)
             {
@@ -35,26 +36,6 @@ namespace Personnel
             }
 
             Console.ReadLine();
-        }
-
-        private static List<string> ReadData(string path)
-        {
-            List<string> data = new List<string>();
-
-            using (FileStream fileStream = new FileStream(path, FileMode.Open, 
-                FileAccess.Read, FileShare.None))
-            {
-                StreamReader reader = new StreamReader(fileStream);
-                string currentLine = null;
-
-                while (reader.Peek() >= 0)
-                {
-                    currentLine = reader.ReadLine();
-                    data.Add(currentLine.Trim());
-                }
-            }
-            
-            return data;
         }
     }
 }
