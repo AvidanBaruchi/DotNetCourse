@@ -21,7 +21,6 @@ namespace DynInvoke
                 Console.WriteLine(InvokeHello(a, "World"));
                 Console.WriteLine(InvokeHello(b, "Bagette"));
                 Console.WriteLine(InvokeHello(c, "Ninja"));
-                Console.WriteLine(InvokeHello(null, "Ninja"));
                 Console.WriteLine(InvokeHello(c, null));
             }
             catch (TargetException e)
