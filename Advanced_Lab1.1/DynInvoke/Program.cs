@@ -41,7 +41,6 @@ namespace DynInvoke
         {
             string invokedResult = null;
             MemberInfo[] members = null;
-            //List<MethodInfo> methods = new List<MethodInfo>();
             MethodInfo currentMethod = null;
             ParameterInfo[] parameters = null;
 
@@ -53,11 +52,11 @@ namespace DynInvoke
                         BindingFlags.Static |
                         BindingFlags.DeclaredOnly);
 
-                foreach (var item in members)
+                foreach (var member in members)
                 {
-                    if (item.MemberType == MemberTypes.Method)
+                    if (member.MemberType == MemberTypes.Method)
                     {
-                        currentMethod = item as MethodInfo;
+                        currentMethod = member as MethodInfo;
 
                         if (currentMethod != null)
                         {
@@ -79,24 +78,9 @@ namespace DynInvoke
                         }
                     }
                 }
-
-                //foreach (var method in methods)
-                //{
-                //    if (method.Name == "Hello")
-                //    {
-                //        parameters = method.GetParameters();
-
-                //        if (parameters.Length == 1)
-                //        {
-                //            if (parameters[0].ParameterType.Equals(typeof(string)))
-                //            {
-                //                var param = new object[] { message };
-                //                invokedResult = (string)method.Invoke(obj, param);
-                //                break;
-                //            }
-                //        }
-                //    }
-                //} 
+            }
+            else {
+                throw new ArgumentNullException("obj", "cannot accept a null object");
             }
 
             return invokedResult;
