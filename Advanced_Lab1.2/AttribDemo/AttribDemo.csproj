@@ -47,6 +47,7 @@
     <Compile Include="Classes\B.cs" />
     <Compile Include="Classes\C.cs" />
     <Compile Include="Classes\CodeReviewAttribute.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

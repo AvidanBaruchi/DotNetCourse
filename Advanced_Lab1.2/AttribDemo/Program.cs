@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AttribDemo.Classes;
+using System.IO;
 
 namespace AttribDemo
 {
@@ -14,45 +15,23 @@ namespace AttribDemo
         {
             try
             {
-                AnalayzeAssembly(Assembly.GetExecutingAssembly());
+                Helper helper = new Helper();
+                string message = "All Code reviews are approved!";
+                bool answer = helper.AnalayzeAssembly(Assembly.GetExecutingAssembly());
+
+                if (!answer)
+                {
+                    message = "Not " + message;
+                }
+
+                Console.WriteLine(message);
             }
             catch (ReflectionTypeLoadException e)
             {
                 Console.WriteLine($"Could not acces assembly types: {e.Message}");
             }
-        }
 
-        public static bool AnalayzeAssembly(Assembly assembly)
-        {
-            Type[] types = assembly.GetTypes();
-            IEnumerable<CodeReviewAttribute> reviewAttributes = null;
-
-            foreach (var type in types)
-            {
-                if (type.IsDefined(typeof(CodeReviewAttribute), false))
-                {
-                    reviewAttributes = type.GetCustomAttributes<CodeReviewAttribute>();
-
-                    if (reviewAttributes.ToList().Count == 0)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        foreach (var item in reviewAttributes)
-                        {
-                            if (item.IsApproved == true) {
-
-                            }
-                        }
-                    }
-                }
-                else {
-                    return false;
-                }
-            }
-
-            return true;
+            Console.ReadLine();
         }
     }
 }
