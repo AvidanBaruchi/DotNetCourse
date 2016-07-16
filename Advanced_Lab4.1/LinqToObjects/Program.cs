@@ -12,8 +12,12 @@ namespace LinqToObjects
         {
             var helper = new Helper();
 
-            //helper.interfaces();
+            Console.WriteLine("Interfaces");
+            helper.interfaces();
+            Console.WriteLine("Processes");
             helper.processes();
+            Console.WriteLine("Threads");
+            helper.threads();
 
             Console.ReadLine();
         }
