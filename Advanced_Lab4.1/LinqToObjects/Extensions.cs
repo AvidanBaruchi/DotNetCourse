@@ -11,17 +11,16 @@ namespace LinqToObjects
     {
         public static void CopyTo(this object source, object destination)
         {
-            destination = null;
-
             if (source.GetType() != destination.GetType())
             {
                 throw new ArgumentException("Must be Same type!", "destination");
             }
 
             var props =
-                (from prop in source.GetType()
-                 .GetProperties(BindingFlags.Public | BindingFlags.SetField | BindingFlags.GetField)
-                 select prop);
+                 from prop in source.GetType()
+                 .GetProperties()
+                 where prop.CanRead && prop.CanWrite
+                 select prop;
 
             foreach (var prop in props)
             {

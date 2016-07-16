@@ -90,7 +90,15 @@ namespace LinqToObjects
 
         public void CopyTo()
         {
+            TestClass t1 = new TestClass(1);
+            TestClass t2 = new TestClass(2);
 
+            t1.GetAndSet = 1;
+            t2.GetAndSet = 2;
+
+            Console.WriteLine($"t2: {t2}");
+            t1.CopyTo(t2);
+            Console.WriteLine($"t2: {t2}");
         }
 
         private bool IsSystem(Process process)
