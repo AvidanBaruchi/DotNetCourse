@@ -38,7 +38,8 @@ namespace LinqToXML
             XElement asXml = new XElement("Types", xml);
             //Console.WriteLine(asXml);
             //helper.ListOfProperties(asXml);
-            helper.MethodsCount(asXml);
+            //helper.MethodsCount(asXml);
+            helper.Statistics(asXml);
             Console.ReadLine();
         }
     }
