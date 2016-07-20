@@ -36,7 +36,7 @@ namespace LinqToXML
         public void Statistics(XElement xml)
         {
             int numberOfProps = xml.Descendants("Property").Count();
-            var typesAsParameters = (from parameter in xml.Descendants("Parameter")
+            var typeAsParameters = (from parameter in xml.Descendants("Parameter")
                                     group parameter by parameter.Attribute("Type").Value into typeToParamsArray
                                     let item = new
                                     {
@@ -46,20 +46,35 @@ namespace LinqToXML
                                     orderby item.Count descending
                                     select item).FirstOrDefault();
 
+            Console.WriteLine($"There are {numberOfProps} properties in mscorlib.dll");
+            Console.WriteLine($"The most common type as parameter is {typeAsParameters.TypeName} with {typeAsParameters.Count} occurences");
+        }
+
+        public void SortingTypes(XElement xml)
+        {
+            var query = new XElement("Types", 
+                        from type in xml.Descendants("Type")
+                        let numberOfMethods = type.Descendants("Method").ToList().Count
+                        let numberOfProps = type.Descendants("Property").ToList().Count
+                        orderby numberOfMethods descending
+                        select new XElement("Type",
+                        new XAttribute("Name", type.Attribute("FullName").Value),
+                        new XAttribute("MethodsCount", numberOfMethods),
+                        new XAttribute("PropertiesCount", numberOfProps)));
+
+            Console.WriteLine(query);
+        }
+
+        public void GroupTypes(XElement xml)
+        {
+            var query = from type in xml.Descendants("Type")
+                        let numberOfMethods = type.Descendants("Method").ToList().Count
+                        //orderby numberOfMethods descending
+                        group type by numberOfMethods into methodsCountGroup
+                        orderby methodsCountGroup.Key descending
+                        select methodsCountGroup;
 
 
-           //from param in xml.Descendants("Parameter")
-           //let typeName = param.Attribute("Type").Value
-           //group param by typeName into types
-           //let item = new
-           //{
-           //    Name = types.Key,
-           //    Count = types.Count()
-           //}
-           //orderby item.Count
-           //select item;
-
-           Console.WriteLine($"There are {numberOfProps} properties in mscorlib.dll");
         }
     }
 }
