@@ -67,14 +67,25 @@ namespace LinqToXML
 
         public void GroupTypes(XElement xml)
         {
-            var query = from type in xml.Descendants("Type")
-                        let numberOfMethods = type.Descendants("Method").ToList().Count
-                        //orderby numberOfMethods descending
-                        group type by numberOfMethods into methodsCountGroup
-                        orderby methodsCountGroup.Key descending
-                        select methodsCountGroup;
+            var query = (
+                 from type in xml.Descendants("Type")
+                 let numberOfMethods = type.Descendants("Method").ToList().Count
+                 group type by numberOfMethods into methodsCountGroup
+                 orderby methodsCountGroup.Key descending
+                 select methodsCountGroup)
+                .Select(group => new
+                {
+                    Key = group.Key,
+                    List = group.OrderBy(type => type.Attribute("FullName").Value)
+                });
 
-
+            foreach (var item in query.Where(item => item.Key == 0))
+            {
+                foreach (var type in item.List)
+                {
+                    Console.WriteLine(type);
+                }
+            }
         }
     }
 }
