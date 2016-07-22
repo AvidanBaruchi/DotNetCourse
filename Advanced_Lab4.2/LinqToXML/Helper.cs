@@ -73,11 +73,11 @@ namespace LinqToXML
                  group type by numberOfMethods into methodsCountGroup
                  orderby methodsCountGroup.Key descending
                  select methodsCountGroup)
-                .Select(group => new
-                {
-                    Key = group.Key,
-                    List = group.OrderBy(type => type.Attribute("FullName").Value)
-                });
+                 .Select(group => new
+                 {
+                     Key = group.Key,
+                     List = group.OrderBy(type => type.Attribute("FullName").Value)
+                 });
 
             foreach (var item in query.Where(item => item.Key == 0))
             {
