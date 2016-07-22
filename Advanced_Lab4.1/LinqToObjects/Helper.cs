@@ -88,10 +88,12 @@ namespace LinqToObjects
             }
         }
 
-        public void CopyTo()
+        public void CopyToMethodTest()
         {
             TestClass t1 = new TestClass(1);
             TestClass t2 = new TestClass(2);
+            AnotherTestClass atc1 = new AnotherTestClass(1);
+            AnotherTestClass atc2 = new AnotherTestClass(2);
 
             t1.GetAndSet = 1;
             t2.GetAndSet = 2;
@@ -99,6 +101,23 @@ namespace LinqToObjects
             Console.WriteLine($"t2: {t2}");
             t1.CopyTo(t2);
             Console.WriteLine($"t2: {t2}");
+
+            Console.WriteLine("from atc1 to atc2 - only ReadOnlyProp should update");
+            Console.WriteLine($"atc2: {atc2}");
+            atc1.CopyTo(atc2);
+            Console.WriteLine($"atc2: {atc2}");
+
+            Console.WriteLine("Mixing the two classes from t1 to atc2: only ReadOnlyProp should update");
+            atc2 = new AnotherTestClass(2);
+            Console.WriteLine($"atc2: {atc2}");
+            t1.CopyTo(atc2);
+            Console.WriteLine($"atc2: {atc2}");
+
+            Console.WriteLine("Mixing the two classes from atc2 to t1: both ReadOnlyProp and GetSet should update");
+            atc2 = new AnotherTestClass(2);
+            Console.WriteLine($"t1: {t1}");
+            atc2.CopyTo(t1);
+            Console.WriteLine($"t1: {t1}");
         }
 
         private bool IsSystem(Process process)

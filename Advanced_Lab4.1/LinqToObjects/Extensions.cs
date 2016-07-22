@@ -11,20 +11,22 @@ namespace LinqToObjects
     {
         public static void CopyTo(this object source, object destination)
         {
-            if (source.GetType() != destination.GetType())
-            {
-                throw new ArgumentException("Must be Same type!", "destination");
-            }
+            var query =
+                from prop1 in source.GetType().GetProperties()
+                where prop1.CanRead
+                from prop2 in destination.GetType().GetProperties()
+                where prop2.CanWrite
+                where prop1.Name == prop2.Name
+                select new
+                {
+                    Src = prop1,
+                    Dest = prop2
+                };
 
-            var props =
-                 from prop in source.GetType()
-                 .GetProperties()
-                 where prop.CanRead && prop.CanWrite
-                 select prop;
 
-            foreach (var prop in props)
+            foreach (var pair in query)
             {
-                prop.SetValue(destination, prop.GetValue(source));
+                pair.Dest.SetValue(destination, pair.Src.GetValue(source));
             }
         }
     }

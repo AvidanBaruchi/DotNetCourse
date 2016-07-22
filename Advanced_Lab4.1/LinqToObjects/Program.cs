@@ -12,14 +12,14 @@ namespace LinqToObjects
         {
             var helper = new Helper();
 
-            //Console.WriteLine("Interfaces");
-            //helper.interfaces();
-            //Console.WriteLine("Processes");
-            //helper.processes();
-            //Console.WriteLine("Threads");
-            //helper.threads();
+            Console.WriteLine("Interfaces");
+            helper.interfaces();
+            Console.WriteLine("Processes");
+            helper.processes();
+            Console.WriteLine("Threads");
+            helper.threads();
             Console.WriteLine("CopyTo");
-            helper.CopyTo();
+            helper.CopyToMethodTest();
 
             Console.ReadLine();
         }
