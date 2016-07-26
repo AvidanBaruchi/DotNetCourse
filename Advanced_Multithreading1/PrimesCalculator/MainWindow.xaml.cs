@@ -25,6 +25,7 @@ namespace PrimesCalculator
         private Regex number = new Regex("^[0-9]+$");
         private SynchronizationContext _synchronizationContext = SynchronizationContext.Current;
         Helper _helper = new Helper();
+        AutoResetEvent _autoreset = new AutoResetEvent(true);
 
         public MainWindow()
         {
@@ -42,9 +43,13 @@ namespace PrimesCalculator
             int from = int.Parse(textBoxFrom.Text);
             int to = int.Parse(textBoxTo.Text);
 
+            _autoreset.Set();
+
             Task.Run(() =>
             {
                 var primes = _helper.CalcPrimes(from, to);
+
+                _autoreset.WaitOne();
 
                 invokeOnUiThread(() =>
                 {
@@ -54,6 +59,11 @@ namespace PrimesCalculator
                     }
                 });
             });
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            _autoreset.Reset();
         }
 
         private void invokeOnUiThread(Action action)
