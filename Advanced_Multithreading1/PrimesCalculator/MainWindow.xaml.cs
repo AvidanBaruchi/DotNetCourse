@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -24,12 +25,14 @@ namespace PrimesCalculator
     {
         private Regex number = new Regex("^[0-9]+$");
         private SynchronizationContext _synchronizationContext = SynchronizationContext.Current;
-        Helper _helper = new Helper();
-        AutoResetEvent _autoreset = new AutoResetEvent(true);
+        private Helper _helper = new Helper();
+        private CancellationTokenSource _cancellationSource = null;
 
         public MainWindow()
         {
             InitializeComponent();
+            textBoxFrom.Text = "1";
+            textBoxTo.Text = "5000000";
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -43,13 +46,12 @@ namespace PrimesCalculator
             int from = int.Parse(textBoxFrom.Text);
             int to = int.Parse(textBoxTo.Text);
 
-            _autoreset.Set();
+            _cancellationSource = new CancellationTokenSource();
+            var token = _cancellationSource.Token;
 
             Task.Run(() =>
             {
-                var primes = _helper.CalcPrimes(from, to);
-
-                _autoreset.WaitOne();
+                var primes = _helper.CalcPrimesCancelable(from, to, token.WaitHandle);
 
                 invokeOnUiThread(() =>
                 {
@@ -58,12 +60,12 @@ namespace PrimesCalculator
                         listBox.Items.Add(prime); 
                     }
                 });
-            });
+            }, token);
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            _autoreset.Reset();
+            _cancellationSource.Cancel();
         }
 
         private void invokeOnUiThread(Action action)
