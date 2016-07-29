@@ -94,7 +94,7 @@ namespace PrimesCalculator
                 }
                 catch (NotSupportedException e)
                 {
-
+                    Debug.WriteLine($"Cannot invoke on UI thread! {e.Message}");
                 }
             }, null);
         }
