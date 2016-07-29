@@ -64,12 +64,11 @@ namespace PrimesCalculator
             {
                 var primes = _helper.CalcPrimesCancelable(from, to, token.WaitHandle);
 
+                _primes = new ObservableCollection<int>(primes);
+
                 InvokeOnUiThread(() =>
                 {
-                    foreach (var prime in primes)
-                    {
-                        _primes.Add(prime);
-                    }
+                    listBox.ItemsSource = _primes;
                 });
             }, token);
         }
