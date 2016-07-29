@@ -10,6 +10,7 @@ namespace Queues
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
