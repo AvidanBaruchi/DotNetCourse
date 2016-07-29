@@ -40,7 +40,6 @@ namespace PrimesCalculator
                 if (handle != null 
                     && handle.WaitOne(0))
                 {
-                    Debug.WriteLine("Cancelled");
                     break;
                 }
 
