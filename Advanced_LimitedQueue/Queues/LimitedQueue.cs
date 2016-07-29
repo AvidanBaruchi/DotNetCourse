@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace Queues
 {
-    public class LimitedQueue<T>
+    public class LimitedQueue<T> : IDisposable
     {
         private Queue<T> _queue = new Queue<T>();
         private SemaphoreSlim _semaphore = null;
-        private int _maxQueueSize = 0;
         private ReaderWriterLockSlim _readerWriterLock = new ReaderWriterLockSlim();
 
         public LimitedQueue(int maxQueueSize)
@@ -22,22 +21,42 @@ namespace Queues
         public void Enque(T item)
         {
             _semaphore.Wait();
+            _readerWriterLock.EnterWriteLock();
             _queue.Enqueue(item);
+            _readerWriterLock.ExitWriteLock();
         }
 
         public T Deque()
         {
-            var value = _queue.Dequeue();
-            _semaphore.Release();
-            return value;   
+            try
+            {
+                _readerWriterLock.EnterWriteLock();
+                var value = _queue.Dequeue();
+                _semaphore.Release();
+                return value;
+            }
+            finally
+            {
+                _readerWriterLock.ExitWriteLock();
+            }
+
         }
 
         public int Count
         {
             get
             {
-                return _queue.Count;
+                _readerWriterLock.EnterReadLock();
+                var count = _queue.Count;
+                _readerWriterLock.ExitReadLock();
+                return count;
             }
+        }
+
+        public void Dispose()
+        {
+            _semaphore.Dispose();
+            _readerWriterLock.Dispose();
         }
     }
 }

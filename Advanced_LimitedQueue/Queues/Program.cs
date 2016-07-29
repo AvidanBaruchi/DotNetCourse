@@ -10,7 +10,11 @@ namespace Queues
     {
         static void Main(string[] args)
         {
+            Helper helper = new Helper();
 
+            helper.TestLimitedQueue();
+
+            Console.ReadLine();
         }
     }
 }
