@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -27,24 +28,34 @@ namespace PrimesCalculator
         private SynchronizationContext _synchronizationContext = SynchronizationContext.Current;
         private Helper _helper = new Helper();
         private CancellationTokenSource _cancellationSource = null;
+        private ObservableCollection<int> _primes = new ObservableCollection<int>();
 
         public MainWindow()
         {
             InitializeComponent();
             textBoxFrom.Text = "1";
             textBoxTo.Text = "5000000";
+            listBox.ItemsSource = _primes;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            listBox.Items.Clear();
+            _primes.Clear();
             CalculatePrimes();
         }
 
         private void CalculatePrimes()
         {
-            int from = int.Parse(textBoxFrom.Text);
-            int to = int.Parse(textBoxTo.Text);
+            int from = 0;
+            int to = 0;
+            bool isParsed = int.TryParse(textBoxFrom.Text, out from)
+                && int.TryParse(textBoxTo.Text, out to);
+
+            if (!isParsed)
+            {
+                MessageBox.Show("Please insert a valid numbers!");
+                return;
+            }
 
             _cancellationSource = new CancellationTokenSource();
             var token = _cancellationSource.Token;
@@ -53,11 +64,11 @@ namespace PrimesCalculator
             {
                 var primes = _helper.CalcPrimesCancelable(from, to, token.WaitHandle);
 
-                invokeOnUiThread(() =>
+                InvokeOnUiThread(() =>
                 {
                     foreach (var prime in primes)
                     {
-                        listBox.Items.Add(prime); 
+                        _primes.Add(prime);
                     }
                 });
             }, token);
@@ -65,16 +76,26 @@ namespace PrimesCalculator
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-            _cancellationSource.Cancel();
+            if (_cancellationSource != null && !_cancellationSource.IsCancellationRequested)
+            {
+                _cancellationSource.Cancel();
+            }
         }
 
-        private void invokeOnUiThread(Action action)
+        private void InvokeOnUiThread(Action action)
         {
             _synchronizationContext.Send(o =>
             {
-                if (action != null)
+                try
                 {
-                    action.Invoke(); 
+                    if (action != null)
+                    {
+                        action.Invoke();
+                    }
+                }
+                catch (NotSupportedException e)
+                {
+
                 }
             }, null);
         }
