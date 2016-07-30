@@ -10,6 +10,12 @@ namespace SyncDemo
     {
         static void Main(string[] args)
         {
+            Helper helper = new Helper();
+
+            Console.WriteLine("Writing...");
+            helper.WriteProcessIdToFile();
+
+            Console.ReadLine();
         }
     }
 }
