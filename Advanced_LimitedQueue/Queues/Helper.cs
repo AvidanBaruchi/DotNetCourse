@@ -10,9 +10,12 @@ namespace Queues
     {
         public void TestLimitedQueue()
         {
-            LimitedQueue<int> queue = new LimitedQueue<int>(5);
+            LimitedQueue<int> queue = new LimitedQueue<int>(10);
 
-            for (int i = 1; i <= 10; i++)
+            var randomQueueCount = new Random(Guid.NewGuid().GetHashCode()).Next(1, 100);
+            Console.WriteLine($"There are {randomQueueCount} Tasks trying to Enqueue");
+
+            for (int i = 1; i <= randomQueueCount; i++)
             {
                 var item = i;
                 Task.Run(() =>
@@ -21,12 +24,17 @@ namespace Queues
                     Console.WriteLine($"Added {item} to queue");
                     Console.WriteLine($"Count is: {queue.Count}");
                 });
+            }
 
-                Task.Run(async () =>
+            var randomDequeueCount = new Random(Guid.NewGuid().GetHashCode()).Next(1, 100);
+            Console.WriteLine($"There are {randomDequeueCount} Tasks trying to Dequeue");
+
+            for (int i = 0; i < randomDequeueCount; i++)
+            {
+                Task.Run(() =>
                 {
                     try
                     {
-                        await Task.Delay(500);
                         var dequeueItem = queue.Deque();
                         Console.WriteLine($"removed {dequeueItem} from queue");
 
