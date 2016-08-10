@@ -10,7 +10,11 @@ namespace ProjectBuilder
     {
         static void Main(string[] args)
         {
+            var helper = new Helper();
 
+            helper.BuildAndExecuteTasks();
+
+            Console.ReadLine();
         }
     }
 }
