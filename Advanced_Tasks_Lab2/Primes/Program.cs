@@ -19,7 +19,7 @@ namespace Primes
             Console.ReadLine();
         }
 
-        public static IEnumerable<int> CalcPrimes(int from, int to)
+        static IEnumerable<int> CalcPrimes(int from, int to)
         {
             var collection = new ConcurrentBag<int>();
 
