@@ -12,7 +12,8 @@ namespace ProjectBuilder
         {
             var helper = new Helper();
 
-            helper.BuildAndExecuteTasks();
+            helper.BuildProjectsSequentialy();
+            //helper.BuildProjectsConcurrently();
 
             Console.ReadLine();
         }
