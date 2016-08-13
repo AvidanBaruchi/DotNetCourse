@@ -25,24 +25,22 @@ namespace PrimesCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Regex number = new Regex("^[0-9]+$");
+        private readonly Regex _number = new Regex("^[0-9]+$");
         private SynchronizationContext _synchronizationContext = SynchronizationContext.Current;
-        private Helper _helper = new Helper();
+        private readonly Helper _helper = new Helper();
         private CancellationTokenSource _cancellationSource = null;
-        private ObservableCollection<int> _primes = new ObservableCollection<int>();
+        private int _primesCount = 0;
 
         public MainWindow()
         {
             InitializeComponent();
             textBoxFrom.Text = "1";
             textBoxTo.Text = "5000000";
-            listBox.ItemsSource = _primes;
         }
 
         private async void buttonCalc_Click(object sender, RoutedEventArgs e)
         {
             buttonCalc.IsEnabled = false;
-            _primes.Clear();
             labelFileMessage.Content = null;
             await CalculatePrimes();
             WriteToFile();
@@ -65,10 +63,8 @@ namespace PrimesCalculator
             _cancellationSource = new CancellationTokenSource();
             var token = _cancellationSource.Token;
 
-            var result = await _helper.CalcPrimesAsync(from, to, token.WaitHandle);
-            _primes = new ObservableCollection<int>(result);
-            listBox.ItemsSource = _primes;
-            labelPrimesCount.Content = "Number of Primes: " + _primes.Count;
+            _primesCount = await _helper.CountPrimesAsync(from, to, token.WaitHandle);           
+            labelPrimesCount.Content = "Number of Primes: " + _primesCount;
         }
 
         private void WriteToFile()
@@ -90,8 +86,8 @@ namespace PrimesCalculator
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(
-                        $"{DateTime.Now}: Found {_primes.Count} Prime Numbers in the Range of {textBoxFrom.Text} to {textBoxTo.Text}");
-                    labelFileMessage.Content = $"{_primes.Count} Written to file {fileName}";
+                        $"{DateTime.Now}: Found {_primesCount} Prime Numbers in the Range of {textBoxFrom.Text} to {textBoxTo.Text}");
+                    labelFileMessage.Content = $"{_primesCount} Written to file {fileName}";
                     isWritten = true;
                 }
             }
@@ -123,24 +119,9 @@ namespace PrimesCalculator
             }
         }
 
-        private void InvokeOnUiThread(Action action)
-        {
-            _synchronizationContext.Send(o =>
-            {
-                try
-                {
-                    action?.Invoke();
-                }
-                catch (NotSupportedException e)
-                {
-                    Debug.WriteLine($"Cannot invoke on UI thread! {e.Message}");
-                }
-            }, null);
-        }
-
         private void ValidateNumber(object sender, TextCompositionEventArgs e)
         {
-            e.Handled = !number.IsMatch(e.Text);
+            e.Handled = !_number.IsMatch(e.Text);
         }
 
         private void textBox_PreviewKeyDown(object sender, KeyEventArgs e)

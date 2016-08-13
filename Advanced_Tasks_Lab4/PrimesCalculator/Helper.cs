@@ -11,6 +11,18 @@ namespace PrimesCalculator
 {
     class Helper
     {
+        public async Task<int> CountPrimesAsync(int from, int to, WaitHandle handle)
+        {
+            return await Task.Run(() =>
+            {
+                int count = 0;
+
+                PrimesMechanism(from, to, handle, _ => { count++; });
+
+                return count;
+            });   
+        }
+
         public async Task<IEnumerable<int>> CalcPrimesAsync(int from, int to, WaitHandle handle)
         {
             return await Task.Run(() => CalcPrimesCancelable(from, to, handle));
@@ -25,6 +37,18 @@ namespace PrimesCalculator
         {
             List<int> collection = new List<int>();
 
+            PrimesMechanism(from, to, handle, prime => collection.Add(prime));
+
+            return collection;
+        }
+
+        private void PrimesMechanism(int from, int to, WaitHandle handle, Action<int> onPrimeFound)
+        {
+            if (onPrimeFound == null)
+            {
+                throw new ArgumentNullException(nameof(onPrimeFound), "action must be a valid delegate!");
+            }
+
             if (from < 2)
             {
                 from = 2;
@@ -34,7 +58,7 @@ namespace PrimesCalculator
             {
                 if (from == 2 && to >= from)
                 {
-                    collection.Add(2);
+                    onPrimeFound(2);
                 }
 
                 from++;
@@ -42,7 +66,7 @@ namespace PrimesCalculator
 
             for (int currentNumber = from; currentNumber <= to; currentNumber += 2)
             {
-                if (handle != null 
+                if (handle != null
                     && handle.WaitOne(0))
                 {
                     break;
@@ -50,11 +74,9 @@ namespace PrimesCalculator
 
                 if (IsPrime(currentNumber))
                 {
-                    collection.Add(currentNumber);
+                    onPrimeFound(currentNumber);
                 }
             }
-
-            return collection;
         }
 
         private bool IsPrime(int number)
