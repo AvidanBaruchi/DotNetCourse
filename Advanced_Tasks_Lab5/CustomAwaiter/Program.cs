@@ -10,6 +10,12 @@ namespace CustomAwaiter
     {
         static void Main(string[] args)
         {
+            Helper helper = new Helper();
+
+            helper.TestIntAwaiter();
+            helper.TestProcessAwaiter();
+
+            Console.ReadLine();
         }
     }
 }
