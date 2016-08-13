@@ -34,10 +34,6 @@ namespace CustomAwaiter
             {
                 Console.WriteLine($"Windows Error: {e.Message}");
             }
-            catch (NullReferenceException e)
-            {
-                Console.WriteLine($"No Process Found: {e.Message}");
-            }
         }
     }
 }
