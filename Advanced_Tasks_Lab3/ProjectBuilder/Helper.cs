@@ -18,20 +18,20 @@ namespace ProjectBuilder
 
             var proj5 = Task.Factory.ContinueWhenAll(new Task[] { proj1, proj2, proj3 }, _ => BuildProject("Project 5"));
             var proj6 = Task.Factory.ContinueWhenAll(new Task[] { proj3, proj4 }, _ => BuildProject("Project 6"));
-            var proj7 = Task.Factory.ContinueWhenAll(new Task[] { proj5, proj6 }, _ => BuildProject("Project 7"));
-            var proj8 = proj5.ContinueWith(_ => BuildProject("Project 8"));
+            Task.Factory.ContinueWhenAll(new Task[] { proj5, proj6 }, _ => BuildProject("Project 7"));
+            proj5.ContinueWith(_ => BuildProject("Project 8"));
         }
 
         public void BuildProjectsSequentialy()
         {
-            BuildProject("Project 1");
-            BuildProject("Project 2");
-            BuildProject("Project 3");
-            BuildProject("Project 4");
-            BuildProject("Project 5");
-            BuildProject("Project 6");
-            BuildProject("Project 7");
-            BuildProject("Project 8");
+            Task.Run(() => { BuildProject("Project 1"); })
+                .ContinueWith(_ => BuildProject("Project 2"))
+                .ContinueWith(_ => BuildProject("Project 3"))
+                .ContinueWith(_ => BuildProject("Project 4"))
+                .ContinueWith(_ => BuildProject("Project 5"))
+                .ContinueWith(_ => BuildProject("Project 6"))
+                .ContinueWith(_ => BuildProject("Project 7"))
+                .ContinueWith(_ => BuildProject("Project 8"));
         }
 
         private void BuildProject(string projectName)
