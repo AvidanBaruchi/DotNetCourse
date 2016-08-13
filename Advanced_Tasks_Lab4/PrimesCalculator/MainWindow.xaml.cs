@@ -43,9 +43,10 @@ namespace PrimesCalculator
         {
             buttonCalc.IsEnabled = false;
             _primes.Clear();
+            labelFileMessage.Content = null;
             await CalculatePrimes();
             WriteToFile();
-            buttonCalc.IsEnabled = false;
+            buttonCalc.IsEnabled = true;
         }
 
         private async Task CalculatePrimes()
@@ -73,15 +74,43 @@ namespace PrimesCalculator
         private void WriteToFile()
         {
             var fileName = textBoxOutputFile.Text;
+            var isWritten = false;
 
             if (string.IsNullOrEmpty(fileName))
             {
-                return;
+                fileName = "data.txt";
+            }
+            else
+            {
+                fileName = fileName + ".txt";
             }
 
-            using (var writer = File.AppendText(fileName + ".txt"))
+            try
             {
-                writer.WriteLine();
+                using (var writer = File.AppendText(fileName))
+                {
+                    writer.WriteLine(
+                        $"{DateTime.Now}: Found {_primes.Count} Prime Numbers in the Range of {textBoxFrom.Text} to {textBoxTo.Text}");
+                    labelFileMessage.Content = $"{_primes.Count} Written to file {fileName}";
+                    isWritten = true;
+                }
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                Debug.WriteLine($"Writing to file threw UnauthorizedAccessException: {e.Message}");
+                labelFileMessage.Content = "Could not write to file!";
+            }
+            catch (PathTooLongException e)
+            {
+                Debug.WriteLine($"Writing to file threw PathTooLongException: {e.Message}");
+                labelFileMessage.Content = "Could not write to file!";
+            }
+            finally
+            {
+                if (!isWritten)
+                {
+                    labelFileMessage.Content = "Could not write to file!"; 
+                }
             }
         }
 
