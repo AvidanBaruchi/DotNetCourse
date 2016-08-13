@@ -12,6 +12,11 @@ namespace CustomAwaiter
     {
         public static TaskAwaiter GetAwaiter(this int milliseconds)
         {
+            if (milliseconds < 1)
+            {
+                return Task.Delay(0).GetAwaiter();
+            }
+
             return Task.Delay(milliseconds).GetAwaiter();
         }
 
