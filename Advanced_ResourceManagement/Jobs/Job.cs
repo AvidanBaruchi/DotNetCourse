@@ -22,10 +22,11 @@ namespace Jobs
         public static extern bool TerminateJobObject(IntPtr hjob, uint code);
     }
 
-    public class Job
+    public class Job : IDisposable
     {
         private IntPtr _hJob;
         private List<Process> _processes;
+        private bool _disposed = false;
 
         public Job(string name)
         {
@@ -36,7 +37,7 @@ namespace Jobs
                 throw new InvalidOperationException();
             }
 
-            AddProcessToJob(_hJob);
+            _processes = new List<Process>();
         }
 
         public Job()
@@ -54,7 +55,7 @@ namespace Jobs
 
         private void CheckIfDisposed()
         {
-            throw new NotImplementedException();
+            if(_disposed) throw new ObjectDisposedException("Job");
         }
 
         public void AddProcessToJob(int pid)
@@ -71,7 +72,32 @@ namespace Jobs
 
         public void Kill()
         {
+            // teminates only 1 process! why?
+            NativeJob.TerminateJobObject(_hJob, 0);
         }
 
+        //~Job()
+        //{
+        //    Dispose(false);
+        //}
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+
+            if (disposing)
+            {
+                _processes.Clear();
+            }
+
+            NativeJob.CloseHandle(_hJob);
+            _disposed = true;
+        }
     }
 }

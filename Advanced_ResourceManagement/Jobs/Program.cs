@@ -11,7 +11,16 @@ namespace Jobs
     {
         static void Main(string[] args)
         {
+            var job = new Job("my job");
 
+            job.AddProcessToJob(Process.Start("notepad"));
+            job.AddProcessToJob(Process.Start("calc"));
+
+            Console.ReadLine();
+            job.Kill();
+            job.Kill();
+
+            Console.ReadLine();
         }
     }
 }
