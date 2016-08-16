@@ -22,6 +22,7 @@ namespace Jobs
                 job.Dispose();
 
                 Process testProcess = Process.Start("mspaint");
+                testProcess.Kill();
 
                 try
                 {
@@ -32,9 +33,19 @@ namespace Jobs
                 }
                 catch (ObjectDisposedException e)
                 {
-                    testProcess.Kill();
+                    if (testProcess != null && !testProcess.HasExited)
+                    {
+                        testProcess.Kill();
+                    }
+
                     Console.WriteLine($"Cant make actions on job object, object is disposed: {e.Message}");
                 }
+            }
+
+            for (int i = 0; i < 20; i++)
+            {
+                var job = new Job("Job " + i);
+
             }
 
             Console.ReadLine();

@@ -26,6 +26,7 @@ namespace Jobs
     {
         private IntPtr _hJob;
         private List<Process> _processes;
+        private long _sizeInBytes = 1024L *1024 * 100;
         private bool _disposed = false;
 
         public Job(string name)
@@ -38,6 +39,8 @@ namespace Jobs
             }
 
             _processes = new List<Process>();
+            GC.AddMemoryPressure(_sizeInBytes);
+            Console.WriteLine("Job Was Created");
         }
 
         public Job()
@@ -77,10 +80,12 @@ namespace Jobs
             NativeJob.TerminateJobObject(_hJob, 0);
         }
 
-        //~Job()
-        //{
-        //    Dispose(false);
-        //}
+        ~Job()
+        {
+            Dispose(false);
+            GC.RemoveMemoryPressure(_sizeInBytes);
+            Console.WriteLine("Job Was Released!");
+        }
 
         public void Dispose()
         {
