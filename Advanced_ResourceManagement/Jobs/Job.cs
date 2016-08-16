@@ -60,11 +60,13 @@ namespace Jobs
 
         public void AddProcessToJob(int pid)
         {
+            CheckIfDisposed();
             AddProcessToJob(Process.GetProcessById(pid));
         }
 
         public void AddProcessToJob(Process proc)
         {
+            CheckIfDisposed();
             Debug.Assert(proc != null);
             AddProcessToJob(proc.Handle);
             _processes.Add(proc);
@@ -72,7 +74,6 @@ namespace Jobs
 
         public void Kill()
         {
-            // teminates only 1 process! why?
             NativeJob.TerminateJobObject(_hJob, 0);
         }
 

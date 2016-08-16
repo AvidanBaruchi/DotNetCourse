@@ -11,14 +11,31 @@ namespace Jobs
     {
         static void Main(string[] args)
         {
-            var job = new Job("my job");
+            using (var job = new Job("my job"))
+            {
+                job.AddProcessToJob(Process.Start("notepad"));
+                job.AddProcessToJob(Process.Start("mspaint"));
 
-            job.AddProcessToJob(Process.Start("notepad"));
-            job.AddProcessToJob(Process.Start("calc"));
+                Console.ReadLine();
+                job.Kill();
+                job.Dispose();
+                job.Dispose();
 
-            Console.ReadLine();
-            job.Kill();
-            job.Kill();
+                Process testProcess = Process.Start("mspaint");
+
+                try
+                {
+                    if (testProcess != null)
+                    {
+                        job.AddProcessToJob(testProcess.Id); 
+                    }
+                }
+                catch (ObjectDisposedException e)
+                {
+                    testProcess.Kill();
+                    Console.WriteLine($"Cant make actions on job object, object is disposed: {e.Message}");
+                }
+            }
 
             Console.ReadLine();
         }
