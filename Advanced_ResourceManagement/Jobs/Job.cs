@@ -24,7 +24,7 @@ namespace Jobs
 
     public class Job : IDisposable
     {
-        private IntPtr _hJob;
+        private readonly IntPtr _hJob;
         private List<Process> _processes;
         private long _sizeInBytes = 1024L *1024 * 100;
         private bool _disposed = false;
